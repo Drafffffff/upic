@@ -1,0 +1,766 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; tab-size: 4; background-position: inherit; background-repeat: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
+.CodeMirror-linenumber { }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; position: relative !important; background-position: inherit; background-repeat: inherit; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; background-position: 0px 0px; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  .typora-export * { print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background-color: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; }
+a.md-print-anchor { white-space: pre !important; border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; text-shadow: initial !important; background-position: 0px 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background-color: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit; background-repeat: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.428571429rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left-width: 28px; border-left-style: solid; border-left-color: transparent; border-right-width: 28px; border-right-style: solid; border-right-color: transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+
+/*
+ * Default theme，适用于 core/mweb-base.scss。
+ * 取值参考 chrome 默认样式：
+ * https://chromium.googlesource.com/chromium/blink/+/refs/heads/main/Source/core/css/html.css
+ * 所有 import "core/mweb-base.scss" 的文件都应该同时导入此变量文件。
+ */
+/* color */
+/* font & line */
+/* boxing */
+/* elememts */
+/* color */
+/* prism & pre */
+/* font */
+/* header */
+/* spacing */
+/* table */
+/*
+ * 基准样式，相当于 reset.css，使主题在不同平台下有统一的表现。
+ * 各个属性的默认值为 chrome 的默认样式，见 variables/default.scss。
+ */
+:root {
+  --text-color: #1f2329;
+  --bg-color: white;
+  --side-bar-bg-color: white;
+  --active-file-bg-color: white;
+  --rawblock-edit-panel-bd: #f5f6f7;
+  --window-border: 0 solid white;
+  --control-text-color: #1f2329;
+  --primary-color: #3370ff;
+  --primary-btn-border-color: #3370ff;
+  --active-file-border-color: #3370ff;
+  --primary-btn-text-color: #3370ff;
+  --item-hover-text-color: #3370ff;
+  --meta-content-color: #3370ff;
+  --search-select-text-color: #3370ff;
+  --heading-char-color: #3370ff;
+  /* Mermaid diagrams*/
+  --mermaid-theme: default;
+}
+
+#write {
+  line-height: 1.68;
+  -webkit-text-size-adjust: 100%;
+  max-width: 860px;
+  margin: 0px auto;
+  padding: 1.6rem 3.2rem;
+  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Arial, Segoe UI, PingFang SC, Microsoft Yahei, Hiragino Sans GB, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-size: 16px;
+  color: #1f2329;
+  /* spacing */
+  /* block */
+  /* list */
+  /* inline */
+  /* table */
+  /* code block */
+}
+#write * {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#write > *:first-child {
+  margin-top: 0 !important;
+}
+#write > *:last-child {
+  margin-top: 0 !important;
+}
+#write p, #write details, #write dl, #write ol, #write ul, #write xmp, #write plaintext, #write listing, #write blockquote, #write table, #write figure, #write hr {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+#write h1 {
+  font-size: 26px;
+  font-weight: bold;
+  margin-top: 26px;
+  margin-bottom: 10px;
+  margin-left: 0;
+  margin-right: 0;
+}
+#write h2 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 22px;
+  margin-bottom: 8px;
+  margin-left: 0;
+  margin-right: 0;
+}
+#write h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  margin-left: 0;
+  margin-right: 0;
+}
+#write h4 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 18px;
+  margin-bottom: 8px;
+  margin-left: 0;
+  margin-right: 0;
+}
+#write h5 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  margin-left: 0;
+  margin-right: 0;
+}
+#write h6 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  margin-left: 0;
+  margin-right: 0;
+}
+#write p {
+  margin-left: 0;
+  margin-right: 0;
+}
+#write pre, #write xmp, #write plaintext, #write listing {
+  font-family: var(--monospace);
+}
+#write blockquote > :first-child {
+  margin-top: 0;
+}
+#write blockquote > :last-child {
+  margin-bottom: 0;
+}
+#write hr {
+  border-style: inset;
+  border-width: 1px;
+}
+#write img {
+  max-width: 100%;
+  height: auto;
+}
+#write li {
+  word-wrap: break-all;
+}
+#write li + li {
+  margin-top: 4px;
+}
+#write ul ul, #write ol ul, #write ul ol, #write ol ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+#write .task-list-item {
+  list-style-type: none;
+}
+#write a {
+  color: #3370ff;
+  text-decoration: underline;
+}
+#write a img {
+  border: none;
+}
+#write b, #write strong {
+  font-weight: bold;
+}
+#write i, #write cite, #write em, #write var, #write address, #write dfn {
+  font-style: italic;
+}
+#write code, #write kbd, #write tt, #write samp {
+  font-family: var(--monospace);
+}
+#write mark {
+  color: #1f2329;
+  padding: 0.2em 0;
+  background-color: rgba(255, 246, 122, 0.8);
+}
+#write del, #write s {
+  color: inherit;
+}
+#write table {
+  color: black;
+  border-collapse: collapse;
+  background-color: white;
+  border-spacing: 2px;
+  font-size: 1em;
+}
+#write th, #write td {
+  border-color: #dee0e3;
+  border-width: 1px;
+  border-style: solid;
+}
+#write th {
+  padding: 8px 8px;
+  font-size: 1em;
+  font-weight: 500;
+}
+#write td {
+  padding: 8px 8px;
+  font-size: 1em;
+  font-weight: normal;
+}
+#write pre.md-fences,
+#write pre.md-meta-block,
+#write .md-rawblock-control:not(.md-rawblock-tooltip) .md-rawblock-input {
+  border-radius: 3px;
+  border: 1px solid #dee0e3;
+  padding: 10px;
+  background-color: #f5f6f7;
+}
+#write .CodeMirror div.CodeMirror-cursor {
+  border-color: #1f2329;
+}
+#write .md-math-block, #write .md-rawblock {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+#write .md-rawblock > .md-rawblock-tooltip {
+  background-color: #f5f6f7;
+  transition: 0.5s;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+}
+#write .md-rawblock:hover > .md-rawblock-tooltip {
+  transition: 0.5s;
+  visibility: visible;
+  opacity: 1;
+  animation: none;
+}
+#write .md-rawblock-control:not(.md-rawblock-tooltip) {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#write * {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6 {
+  line-height: 1.4;
+  font-weight: 500;
+  margin-top: 1em;
+  margin-bottom: 0.37em;
+}
+#write blockquote {
+  display: block;
+  margin-left: 0;
+  padding-left: 14px;
+  border-left: 2px solid #3370ff;
+  color: rgba(31, 35, 41, 0.7);
+}
+#write code {
+  border-radius: 4px;
+  margin-left: 2px;
+  margin-right: 2px;
+  border: 1px solid #dee0e3;
+  background-color: #f5f6f7;
+  word-spacing: normal;
+  line-height: 1.6;
+  padding: 0 2px;
+}
+#write a {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  hyphens: auto;
+  word-break: break-word;
+  text-decoration: none;
+}
+#write a:hover {
+  text-decoration: underline;
+}
+#write hr {
+  margin: 13px 0 12px;
+  border: 0px;
+  height: 1px;
+  background-origin: content-box;
+  background-image: linear-gradient(90deg, #bbbfc4, #bbbfc4);
+  background-repeat: no-repeat;
+}
+#write ul {
+  margin-left: 0;
+  padding-left: 22px;
+  list-style: none;
+}
+#write ul > li:not([class*=task-list-item]) {
+  word-wrap: break-all;
+  padding-left: 0px;
+}
+#write ul > li:not([class*=task-list-item]):before {
+  position: absolute;
+  top: 2px;
+  content: "•";
+  color: #3370ff;
+  display: inline-block;
+  margin-left: -20px;
+  margin-right: 20px;
+  width: 0px;
+  font-size: 0.8em;
+  transform: scale(1.25);
+  font-family: PingFangSC-Regular, PingFang SC;
+}
+#write ul > li:not([class*=task-list-item]) li:not([class*=task-list-item])::before {
+  content: "◦";
+  transform: scale(1);
+  font-weight: 700;
+}
+#write ul > li:not([class*=task-list-item]) li:not([class*=task-list-item]) li:not([class*=task-list-item])::before {
+  content: "▪";
+  transform: scale(1.25);
+  font-weight: normal;
+}
+#write ol {
+  counter-reset: ol_counter;
+  margin-left: 0;
+  padding-left: 22px;
+  list-style: none;
+}
+#write ol > li:not([class*=task-list-item]) {
+  word-wrap: break-all;
+  padding-left: 0px;
+  position: relative;
+}
+#write ol > li:not([class*=task-list-item]):before {
+  content: counter(ol_counter) ".";
+  counter-increment: ol_counter;
+  color: #3370ff;
+  position: absolute;
+  margin-left: -22px;
+  margin-right: 4px;
+  padding-left: 2px;
+  padding-right: 2px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: visible;
+  min-width: 18px;
+  border-radius: 2px;
+  transform: translateX(-2px);
+  font-family: Helvetica Neue, Consolas;
+}
+#write li + li, #write ul ul, #write ol ul, #write ul ol, #write ol ol, #write li ul, #write li ol {
+  margin-top: 4px;
+}
+#write .task-list-item {
+  padding-left: 0.3rem;
+}
+#write .task-list-item > p {
+  transition: color 0.3s, opacity 0.3s;
+}
+#write .task-list-item.task-list-done > p {
+  color: #646a73;
+  text-decoration: line-through;
+}
+#write .task-list-item.task-list-done > p > .md-emoji {
+  opacity: 0.5;
+}
+#write .task-list-item.task-list-done > p > .md-link > a {
+  opacity: 0.6;
+}
+#write .task-list-item > input {
+  -webkit-appearance: initial;
+  display: block;
+  position: absolute;
+  border: 1px solid #2b2f36;
+  border-radius: 0.25rem;
+  margin-left: -1.5rem;
+  height: 1.2rem;
+  width: 1.2rem;
+  transition: border-color 0.3s;
+}
+#write .task-list-item > input:focus {
+  outline: none;
+  box-shadow: none;
+}
+#write .task-list-item > input:hover {
+  border-color: #3370ff;
+}
+#write .task-list-item > input[checked]::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  height: 60%;
+  width: 2px;
+  transform: rotate(40deg);
+  background: #3370ff;
+}
+#write .task-list-item > input[checked]::after {
+  content: "";
+  position: absolute;
+  top: 46%;
+  left: 25%;
+  height: 30%;
+  width: 2px;
+  transform: rotate(-40deg);
+  background: #3370ff;
+}
+
+
+mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+mjx-container[jax="SVG"] > svg a {
+  fill: blue;
+  stroke: blue;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line], svg[data-table] > g > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame], svg[data-table] > g > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed, svg[data-table] > g > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted, svg[data-table] > g > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > g > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
+  stroke-width: 3;
+}
+
+g[data-mml-node="xypic"] path {
+  stroke-width: inherit;
+}
+
+.MathJax g[data-mml-node="xypic"] path {
+  stroke-width: inherit;
+}
+mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
+							stroke-width: 0;
+						} @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}}
+</style><title>AI思想展望</title>
+</head>
+<body class='typora-export'><div class='typora-export-content'>
+<div id='write'  class=''><h3 id='世界现代设计史-王受之'><span>《世界现代设计史》 王受之</span></h3><p>&nbsp;</p><h3 id='魏玛包豪斯1919）'><span>“魏玛包豪斯”（1919）</span></h3><p>&nbsp;</p><p><span>“建立一个非机械化的、比较人性化的、</span><mark><span>追求中世纪行会友好合作精神</span></mark><span>的微型社会的信念。”</span></p><p>&nbsp;</p><blockquote><p><span>“完整的建筑物是视觉艺术的最终目的。艺术家最崇高的职责是美化建筑。今天，他们各自孤立地生存着；只有通过自觉，并且和</span><mark><span>所有工艺技术人员合作才能达到自救的目的</span></mark><span>。建筑家、画家和雕塑家必须重新认识：一栋建筑是各种艺术共同组合的实体，只有这样，他们的作品才能灌注进建筑的精神，以免流为‘沙龙艺术’。</span></p><p><span>建筑家、雕塑家和画家们，我们应该转向应用艺术。</span></p><p><span>……</span></p><p><span>同时，让我们创造出一栋将</span><mark><span>建筑、雕塑和绘画结合成为三位一体</span></mark><span>的新的未来的殿堂，并且用千百万艺术工作者的双手将它耸立在云霞高处，变成一种新的信念的鲜明标志。”</span></p><p><span>——《包豪斯宣言》</span></p></blockquote><p>&nbsp;</p><p><u><span>艺术+手工艺  -&gt;  当下 艺术+科技（AI）</span></u></p><p><u><span>早期包豪斯提倡建筑、雕塑和绘画结合成为三位一体，现在追求的设计智造协同创新是设计、智能技术（AI）、工业化生产三位一体</span></u></p><p>&nbsp;</p><p>&nbsp;</p><h3 id='成熟阶段的包豪斯------德绍时期1923）'><span>“成熟阶段的包豪斯——德绍时期”（1923）</span></h3><p>&nbsp;</p><p><span>“理性主义，比较接近科学方式的艺术与设计教育，</span><mark><span>开始强调为大工业生产的设计</span></mark><span>”</span></p><p><span>“当时德国正处于工业发展迅速、政治与经济局势稳定的时期，因而，包豪斯的变化是顺应了社会大环境的改变的。”</span></p><p>&nbsp;</p><p><u><span>大工业生产与当下的移动互联网在一定程度上有诸多的相似点，大工业生产要在满足最普遍大众的生活需求的基础上添加文化精神层次的追求，移动互联网也需要满足最普遍大众的生活、精神需求，两者都需要有大量的物质、内容产出，包豪斯主义的简洁、构成……等理念对大工业生产与精神文化需求的矛盾给出了一个解，而科技（AI）就是在移动互联网时代解。</span></u></p><p>&nbsp;</p><h3 id='柏林时期的包豪斯'><span>“柏林时期的包豪斯”</span></h3><p><span>……</span></p><p>&nbsp;</p><h3 id='俄国构成主义设计运动1914）'><span>“俄国构成主义设计运动”（1914）</span></h3><blockquote><p><span>构成主义是指由一块块金属、玻璃、木块、纸板或塑料组构结合成的雕塑。强调的是空间中的势(movement)，而不是传统雕塑着重的体积量感。构成主义接受了立体派的拼裱和浮雕技法，由传统雕塑的加和减，变成组构和结合；同时也吸收了绝对主义的几何抽象理念，甚至运用到悬挂物和浮雕构成物，对现代雕塑有决定性影响。</span></p><p><span>——wikipedia</span></p></blockquote><p><span>……</span></p><p>&nbsp;</p><h3 id='荷兰的风格派运动20世纪初）'><span>“荷兰的“风格派”运动”（20世纪初）</span></h3><blockquote><p><span>① 把传统的建筑、家具和产品设计、绘画、雕塑的特征完全剥除，变成最基本的几何结构单体，或者称为“元素”（element）；</span>
+<span>② 把这些几何结构单体，或者“元素”进行组合，形成简单的结构组合，但是，在新的结构组合当中，单体依然保持相对独立性和鲜明的可视性；</span>
+<span>③ 对于非对称性的深入研究与运用；</span>
+<span>④ 对于纵横几何结构，以及基本原色和中性色非常特别的反复运用。</span></p></blockquote><p><span>……</span></p><p>&nbsp;</p><h3 id='消费主义17世纪）'><span>消费主义（17世纪）</span></h3><blockquote><p><span>“。17世纪末期，已经有消费阶层出现，到18世纪，随着中产阶级的出现，信奉和追求豪华消费品的人数增多，再加上“时尚”在购买行为上起到越来越重要的作用，因而，消费主义之风就越刮越炽热了。”</span></p></blockquote><blockquote><p><span>“设计之所以发展迅速，与中产阶级市场是分不开的。为了适应这个新市场的需求，企业界全力以赴地发展新的生产技术，开发新的材料，特别是各种合金材料和塑料，设计师们则采用这些新技术、新材料来设计新产品，促进了设计的发展。”</span></p></blockquote><blockquote><p><span>“消费市场上出现了新的趋势：个性化的个人用品成为新宠，能够表现身份和社会地位的物品比单纯讲究功能的产品更受追捧，</span><mark><span>“经久耐用”遭到忽视</span></mark><span>，而</span><mark><span>时尚潮流则日显重要</span></mark><span>。”</span></p></blockquote><p>&nbsp;</p><p><u><span>快节奏迭代的模式与现代大数据、快速生产（AI）追求感官刺激、内容空洞的现状呼应。</span></u></p><p>&nbsp;</p><p><img src="https://cdn.jsdelivr.net/gh/drafffffff/upic@master/uPic/0.5.gif" alt="ai生成作画" style="zoom: 50%;" /></p><p>&nbsp;</p><p><u><span>但是现在的视觉内容并不都是追求有丰富的内涵，在视觉呈现媒介发展到一定程度之后，有一部分的内容功能性的需求更重要，鹿班系统的快速生产就是满足快速迭代的视觉物料的信息呈现功能。</span></u></p><p>&nbsp;</p><h3 id='流线型运动1930）'><span>“流线型运动”（1930）</span></h3><blockquote><p><span>“美国的设计受到技术和时尚的影响，有了很大的改变，流线型现代（Streamline Moderne）成为一种</span><mark><span>强调速度和效率的新美学观念</span></mark><span>”</span></p></blockquote><blockquote><p><span>“运动中的装饰艺术”（Art Deco on Motion），但它融入了动力学的概念，变得更加简洁，更有活力，展示了</span><mark><span>一种强调速度和效率的新美学观念</span></mark><span>，成为一种具有鲜明个性的美国现代设计视觉语言”</span></p></blockquote><blockquote><p><span>“一般而言，流线型风格具有以下一些特点：</span>
+<span>① 强调水平方向的视觉效果，表面平整素净，少有附加装饰；</span>
+<span>② 外形简洁，轮廓圆顺流畅，少有棱角；</span>
+<span>③ 建筑上采用玻璃砖作为装饰手段，常将窗户设计得类似轮船上的舷窗；</span>
+<span>④ 采用连续的不中断的直线或曲线作为装饰动机；</span>
+<span>⑤ 金属硬件大多采用镀铬装饰，玻璃和漆器也很普遍；</span>
+<span>⑥ 大量采用铝材、电木（酚醛塑料）等新型材料，瓷板也很常见。戏剧化地强调材料的固有特性。” </span></p></blockquote><p>&nbsp;</p><h3 id='乌尔姆设计学院联邦德国战后）1954）'><span>“乌尔姆设计学院“（联邦德国战后）（1954）</span></h3><blockquote><p><span>“乌尔姆设计学院的重要贡献，一是确定了工业设计的理性、技术型方向；二是奠定了一个适应发展大方向的教学体制来实施设计教育；三是通过和德国电器制造厂商布劳恩公司的密切合作把系统设计概念贯穿到设计实践上；四是影响了整个德国，以及低地国家的工业产品设计。”</span></p></blockquote><blockquote><p><span>“仍然推崇包豪斯那种建立在艺术和手工艺基础上的改革模式，认为设计师的主要任务是赋予产品以良好的外形，当然，这个外形必须与使用材料、生产流程、大批量的生产方式相适应。”</span></p></blockquote><p>&nbsp;</p><blockquote><p><span>“① 在包豪斯的基础上，继续发扬了德国现代建筑、现代设计以社会目的为中心的传统，而没有像美国等一些国家那样，走形式教育为主的道路，因而延续了被第二次世界大战中断的社会工程式的建筑和设计教育体系的发展。</span>
+<span>② </span><mark><span>以“解决问题”为设计的核心</span></mark><span>，在此基础上</span><mark><span>整合了科学与艺术</span></mark><span>，创建了一套创造性的设计教学方法。完全摒弃了传统上以艺术为中心的建筑教育和设计教育体系，首次将建筑和设计教育完全放在理工和社会科学的基础上来进行，使得设计教育成为一个严格的理性系统，而不是过去那种以艺术表达为中心的模式。</span>
+<span>③ 确定了以建筑为所有设计教育之核心的教学模式。教育学生重视使用者的需求，理解和熟悉各种材料以及生产过程，掌握对多种可行性、多种选择的多元化思考方式，强调科学技术的严格性，培养学生的人机工学概念和设计美学修养，并与工业界建立密切的学术实践关系。</span></p><p><span>④ 代表了欧洲（起码是西欧国家）设计界不愿追随美国讲求流行式样的浅薄方式，而重在</span><mark><span>讲究设计的目的和观念</span></mark><span>，讲究设计的社会影响和长远意义，同时培养学生的社会责任感等方面的追求。“</span></p></blockquote><p>&nbsp;</p><h3 id='后现代主义1950）'><span>“后现代主义”（1950）</span></h3><blockquote><p><span>“后现代主义建筑高度重视建筑的形式。他们反对现代主义、功能主义的“形式追随功能”的原则，认为</span><mark><span>形式本身必须刻意设计</span></mark><span>，形式本身是建筑最本质的东西，而并非功能或者建构。”</span></p></blockquote><p>&nbsp;</p><blockquote><p><span>“第一个是它的历史主义和装饰主义立场。后现代主义</span><mark><span>高度强调装饰性</span></mark><span>，所有的后现代主义设计家，无论是建筑设计师还是产品设计师，都无一例外地采用各种各样的装饰，特别是</span><mark><span>从历史中汲取装饰营养</span></mark><span>，加以运用，与现代主义的冷漠、严峻、理性化形成鲜明对照。”</span></p></blockquote><p>&nbsp;</p><h3 id='英国波普设计运动1960）'><span>英国“波普设计运动”（1960）</span></h3><blockquote><p><span>“与1960年代的文化、艺术、思想、设计建立起密切的联系以后，它就不仅仅是指大众享有的文化，而更加具有</span><mark><span>反叛正统</span></mark><span>的意义，这是这个时代的最大特征。”</span></p></blockquote><p>&nbsp;</p><blockquote><p><span>“这一代年轻设计家们，努力寻找能够代表自己的视觉符号、风格特征。他们要鲜明地代表自己这一代，明确地与父母一辈拉开距离。因此，</span><mark><span>各种颠覆常规的设计观念、新奇古怪的产品造型、炫目张扬的表面装饰、恣意纵横的图案设计</span></mark><span>……一股脑儿涌现出 来，旗帜鲜明，热闹异常”</span></p></blockquote><p>&nbsp;</p><h3 id='意大利的激进设计运动1960）'><span>“意大利的“激进设计”运动”（1960）</span></h3><blockquote><p><span>“这是一场具有强烈反叛味道的青年知识分子的乌托邦运动，这些年轻人反对正统的国际主义设计，反对现代主义风格，</span><mark><span>提倡坏品位（bad taste）</span></mark><span>、</span><mark><span>“不完美”（unperfect）</span></mark><span>或</span><mark><span>任何非正统的风格</span></mark><span>，包括各种历史风格的复兴和折中处理，开宗明义宣布要避开技术品位（technochic，也就是流行的“国际主义”风格），同时也反对大工业化的生产方式。”</span></p></blockquote><p>&nbsp;</p><h3 id='高科技派high-tech）1960）'><span>“高科技”派（High Tech）”（1960）</span></h3><blockquote><p><span>“高科技”（High Tech）是在建筑</span><mark><span>形式上突出当代技术的特色</span></mark><span>，</span><mark><span>突现科学技术的象征性内容</span></mark><span>，以夸张的形式来突出高科技是社会发展动力。这个风格，在建筑上和工业产品设计上都有令人瞩目的表现。“高科技”风格首先出现在工业产品设计上。”</span></p></blockquote><p>&nbsp;</p><h3 id='新德国设计neue-deutsche-design）浪潮1980）'><span>“新德国设计”（Neue Deutsche Design）浪潮”（1980）</span></h3><blockquote><p><span>“所指的是80年代初在联邦德国兴起的一股</span><mark><span>反功能主义的设计浪潮</span></mark><span>。“新德国设计”既是对当时时代氛围的一个反应，亦受到“孟菲斯”的影响。”</span></p></blockquote><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></div></div>
+</body>
+</html>
