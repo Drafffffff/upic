@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: #000;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 600px;
+        margin: auto;
+        width: 100%;
+        user-select: none;
+      }
+      .canvas {
+        width: 100vw;
+        height: 100vw;
+        max-width: 500px;
+        max-height: 500px;
+        background-color: rgb(18, 18, 18);
+      }
+      .content {
+        margin: 0 27px 0 21px;
+      }
+      .infobar {
+        max-width: 500px;
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        background-color: rgb(35, 35, 35);
+        border-radius: 24px 24px 0 0;
+        background-image: url("./bg.png");
+        background-size: cover;
+      }
+
+      .infobar .top {
+        margin-top: 22px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .top .title {
+        font-size: 22px;
+        color: white;
+        line-height: 22px;
+
+      }
+      .top .tags{
+        flex-shrink: 0;
+      }
+      .top .tag {
+        font-size: 9px;
+        color: #e2be86;
+        font-weight: bold;
+        font-style: italic;
+        border: 1px solid #e2be86;
+        border-radius: 8px;
+        padding: 0 5px;
+        background-color: #8d8d8d54;
+        margin-left: 7px;
+      }
+      .infobar .middle {
+        margin-top: 10px;
+      }
+      .middle > p {
+        font-size: 12px;
+        color: #e2be86;
+        opacity: 0.6;
+      }
+      .infobar .bottom {
+        margin-top: 23px;
+        margin-bottom: 17px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+      .limit {
+        display: flex;
+        flex-direction: row;
+      }
+      .limit > div:nth-child(1) {
+        font-size: 9px;
+        color: #333;
+        border-radius: 3px;
+        line-height: 17px;
+        background-color: #e2be86;
+        padding: 0 7px;
+        display: flex;
+        align-items: center;
+        height: 15px;
+        z-index: 1;
+      }
+      .limit > div:nth-child(2) {
+        font-size: 9px;
+        color: #e2be86;
+        line-height: 17px;
+        border-radius: 3px;
+        background-color: #4a4a4a;
+        padding: 0px 12px;
+        font-weight: lighter;
+        display: inline;
+        transform: translateX(-4);
+        display: flex;
+        align-items: center;
+        height: 15px;
+        transform: translate(-4px, 0);
+      }
+      .no > span:nth-child(1) {
+        font-size: 16px;
+        font-weight: bold;
+        color: #e2be86;
+      }
+      .no > span:nth-child(2) {
+        font-size: 16px;
+        font-weight: lighter;
+        color: #e2be86;
+      }
+      .fullscreen-btn {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 18px;
+        right: 18px;
+      }
+      .main-img{
+        width: 100%;
+        max-width: 500px;
+      }
+      .main-img>img{
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="canvas"></div>
+      <div class="infobar">
+        <div class="content">
+          <div class="top">
+            <div class="title">DIA国际空间站-天梦</div>
+            <div class="tags">
+              <span class="tag">点击交互</span>
+              <span class="tag">双指缩放</span>
+            </div>
+          </div>
+          <div class="middle">
+            <p>中国设计智造大奖纪念品</p>
+          </div>
+          <div class="bottom">
+            <div class="limit">
+              <div>限量</div>
+              <div>10000 份</div>
+            </div>
+            <div class="no">
+              <span>No.</span>
+              <span>91EE9CD7</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-img">
+        <img src="./bottom.png" />
+      </div>
+    </div>
+
+    <div class="fullscreen-btn">
+      <img src="./button.svg" />
+    </div>
+  </body>
+</html>
